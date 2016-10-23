@@ -25,9 +25,10 @@ public class EmployeeController {
         return ResponseEntity.ok(wServ.findAll());
     }
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
-    public ResponseEntity<Employee> delete(@PathVariable("id") Integer id) {
-        wServ.delete(id);
-        return ResponseEntity.ok(wServ.find(id));
+    public Employee delete(@PathVariable("id") Integer id) {
+         ResponseEntity.ok(wServ.find(id));
+        return wServ.delete(id);
+
     }
     @RequestMapping(value = "/find/{id}", method = RequestMethod.GET)
     public ResponseEntity<Employee> find(@PathVariable("id")Integer id) {

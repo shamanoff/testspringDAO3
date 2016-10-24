@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name = "Employee")
 @Table(name = "employees")
 //@Scope("prototype")
 public class Employee implements IEmployee {
@@ -25,7 +25,10 @@ public class Employee implements IEmployee {
     private String position;
     @Column(name = "salary")
     private Integer salary;
-    @Column(name = "special_fields")
+    @Column(name = "special")
+
+    // TODO: 24/10/2016 conveter
+    @javax.persistence.Transient
     @JsonIgnore
     private JSONObject jsonObject;
 

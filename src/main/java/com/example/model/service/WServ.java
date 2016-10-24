@@ -15,34 +15,33 @@ public class WServ implements IWServ {
 //    private IDao iDao;
     private EmployeeRepository employeeRepository;
 
-    @Override
-    public void print(Integer id) {
 
-    }
 
     @Override
     public void save(Employee employee) {
-
+     employeeRepository.save(employee);
     }
 
     @Override
     public List<Employee> findAll() {
-        return null;
+       return employeeRepository.findAll();
     }
 
     @Override
     public Employee find(Integer id) {
-        return null;
+        return employeeRepository.findOne(id);
     }
 
     @Override
     public Employee findByName(String name) {
-        return null;
+        return employeeRepository.findByName(name);
     }
 
     @Override
     public Employee delete(Integer id) {
-        return null;
+        Employee employee = employeeRepository.findOne(id);
+        employeeRepository.delete(id);
+        return employee;
     }
 
 

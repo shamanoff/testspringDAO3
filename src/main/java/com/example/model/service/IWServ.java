@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IWServ {
 
-    void print(Integer id);
+
 
     void save(Employee employee);
 

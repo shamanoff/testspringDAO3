@@ -14,6 +14,8 @@ public interface IWServ {
 
     Employee find(Integer id);
 
+    Employee findByName(String name);
+
     Employee delete(Integer id);
 
 

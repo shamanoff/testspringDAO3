@@ -3,17 +3,31 @@ package com.example.model.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+import org.springframework.data.annotation.Id;
 
-@Component
-@Scope("prototype")
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "employees")
+//@Scope("prototype")
 public class Employee implements IEmployee {
 
-    private String name;
+    @Id
+    @GeneratedValue(generator = "increment")
+    @Column(name = "id", length = 6, nullable = false)
     private Integer id;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "position")
     private String position;
+    @Column(name = "salary")
     private Integer salary;
+    @Column(name = "special_fields")
+    @JsonIgnore
+    private JSONObject jsonObject;
 
     public Employee() {
     }
@@ -63,8 +77,7 @@ public class Employee implements IEmployee {
         return salary;
     }
 
-    @JsonIgnore
-    private JSONObject jsonObject;
+
 
     public JSONObject jsonObject() throws JSONException {
         return jsonObject;

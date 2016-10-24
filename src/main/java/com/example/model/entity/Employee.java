@@ -3,20 +3,16 @@ package com.example.model.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity(name = "Employee")
-@Table(name = "employees")
+@Table(name = "employee")
 //@Scope("prototype")
 public class Employee implements IEmployee {
 
     @Id
-    @GeneratedValue(generator = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", length = 6, nullable = false)
     private Integer id;
     @Column(name = "name")

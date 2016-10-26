@@ -53,7 +53,7 @@ public class Employee implements IEmployee {
         this.id = id;
         this.position = position;
         this.salary = salary;
-        this.jsonObject = new JSONObject();
+//        this.jsonObject = new JSONObject();
     }
 
     @Override
